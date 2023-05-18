@@ -1,0 +1,7 @@
+{
+  "name": "trabajofinal-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
