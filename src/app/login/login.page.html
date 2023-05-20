@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Sistema de facturacion IONIC + LB4</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-list>
+    <ion-list>
+      
+      <ion-item>
+        <ion-input label="Email input" type="email" placeholder="email@domain.com" [(ngModel)]="email"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input label="Password" type="password" value="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+  
+  
+      
+    </ion-list>
+
+    <ion-button expand="block" (click)="onLogin()">Iniciar sesion</ion-button>
+
+  </ion-list>
+</ion-content>
