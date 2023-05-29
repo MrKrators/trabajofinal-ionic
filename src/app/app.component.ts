@@ -15,7 +15,7 @@ export class AppComponent {
   subscription: Subscription | undefined;
 
   constructor(private _loginService:LoginService, private router: Router) {
-    this.salir();
+    
     this._loginService.validador();
     this.sesionUsuario();
     
@@ -24,13 +24,11 @@ export class AppComponent {
   
   menu(){
     this.menuLista = [
-      { title: 'Categorias', url: '/categoria', hidden: !this.visible },
-      { title: 'Facturacion', url: '/facturacion', hidden: !this.visible },
-      { title: 'Items', url: '/item', hidden: !this.visible },
-      { title: 'Login', url: '/login', hidden: !this.visible },
-      { title: 'Productos', url: '/producto', hidden: !this.visible },
+      { title: 'Ver Items', url: '/item', hidden: !this.visible },
+      { title: 'Ver Categorias', url: '/categoria', hidden: !this.visible },
+      { title: 'Ver Productos', url: '/producto', hidden: !this.visible },
+      { title: 'Generar facturas', url: '/facturacion', hidden: !this.visible },
       { title: 'Ver Facturas', url: '/ver-facturas', hidden: !this.visible }, 
-      
     ]
   }
 
@@ -38,15 +36,16 @@ export class AppComponent {
     this._loginService.datosDeSesion().subscribe({
       next: roto =>{
         
-        if (roto!="") {
+        if (roto!="undefined") {
           this.visible = false;
           this.menu();
-          console.log('si entra');
+          console.log('si entra'+roto);
         }else{
           this.visible = true;
           this.menu();
-          console.log('no entra');
+          console.log('no entra'+roto);
         }
+        
       }
     })
 
@@ -55,6 +54,9 @@ export class AppComponent {
     salir() {
       this._loginService.deslogearse().then(() => {
         this.router.navigate(['/login']);
+       
+        
+        
       })
     };
   }

@@ -1,13 +1,54 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>add-item</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">add-item</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Agregar Items</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+  
+  
+   
+<ion-grid>
+
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-item>
+          <ion-select interface="popover" placeholder="Seleccione Producto" [(ngModel)]="producto_id">
+            <ion-select-option *ngFor="let producto of productos" value="{{producto.ID}}">{{producto.nombre}} {{producto.detalle}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+
+  <!-- [(ngModel)]="categoria_id"
+  *ngFor="let categoria of categorias" value="{{categoria.ID}}">{{categoria.nombre}} -->
+
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-input label="Precio" [(ngModel)]="precio" type="text"></ion-input>
+      </ion-item>
+      <!-- [(ngModel)]="nombre" -->
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-input label="Stock" [(ngModel)]="stock" type="text"></ion-input>
+      </ion-item>
+      <!-- [(ngModel)]="detalle" -->
+    </ion-col>
+  </ion-row>
+
+  
+
+  <ion-row class="ion-justify-content-center">
+    <ion-button type="ngSubmit" (click)="addItem()">Guardar</ion-button>
+    <!-- (click)="addProducto()" -->
+  </ion-row>
+</ion-grid>
+ 

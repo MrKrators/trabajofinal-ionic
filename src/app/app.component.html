@@ -3,8 +3,10 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
+          <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
           <ion-list-header>Sistema de facturacion IONIC + LB4</ion-list-header>
-
           <ion-menu-toggle auto-hide="false">
             <div *ngFor="let p of menuLista; let i = index">
               <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
@@ -14,15 +16,11 @@
                 <ion-label>{{ p.title }}</ion-label>
               </ion-item>
             </div>
-            <ion-item routerDirection="root" lines="none" detail="false" *ngIf="visible" (click)="salir()">
+            <ion-item routerDirection="root" lines="none" detail="false" *ngIf="!visible" (click)="salir()">
               <ion-label>Salir</ion-label>
             </ion-item>
           </ion-menu-toggle>
-
-
         </ion-list>
-
-
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>

@@ -1,6 +1,6 @@
 export class Item {
 
-    id?: any;
+    ID?: any;
     precio: number;
     stock: number;
     producto_id: number;

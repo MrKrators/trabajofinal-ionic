@@ -25,15 +25,12 @@
           Nombre
         </ion-label>
       </ion-col>
-      <ion-col>
-        Opciones
-      </ion-col>
     </ion-row>
 
     <ion-row  *ngFor="let categoria of categorias">
       <ion-col>
         <ion-label>
-          {{categoria.id}}
+          {{categoria.ID}}
         </ion-label>
       </ion-col>
       <ion-col>
@@ -45,4 +42,6 @@
 
     
   </ion-grid>
+
+  <ion-button expand="block" [routerLink]="['/categoria/add-categoria']">Agregar categoria</ion-button>
 </ion-content>

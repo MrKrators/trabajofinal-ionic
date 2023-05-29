@@ -1,13 +1,49 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>add-producto</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">add-producto</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Agregar Producto</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+  
+  
+   
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-input label="nombre" [(ngModel)]="nombre" type="text"></ion-input>
+      </ion-item>
+      <!--  -->
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-input label="Caracteristicas" [(ngModel)]="detalle" type="text"></ion-input>
+      </ion-item>
+      <!--  -->
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-item>
+          <ion-select interface="popover" placeholder="Seleccione Categoria" [(ngModel)]="categoria_id">
+            <ion-select-option *ngFor="let categoria of categorias" value="{{categoria.ID}}">{{categoria.nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row class="ion-justify-content-center">
+    <ion-button type="ngSubmit" (click)="addProducto()">Guardar</ion-button>
+    <!--  -->
+  </ion-row>
+</ion-grid>
+ 

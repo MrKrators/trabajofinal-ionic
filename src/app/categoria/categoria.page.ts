@@ -32,23 +32,10 @@ export class CategoriasPage implements OnInit {
   getCategorias() {
     this._conndata.get<Categoria>('categorias').subscribe(res => {
       this.categorias=[];
-      console.log(res.data);
+      
       this.categorias = res.data;
-
-
     })
   }
 
-  eliminarCategoria(id: any) {
-    this._conndata.delete(id,'categoria').subscribe(() => {
-
-      console.log('Categoria eliminada');
-
-    }, (err) => {
-      console.log(err);
-
-    })
-
   }
 
-}

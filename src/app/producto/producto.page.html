@@ -1,13 +1,65 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>producto</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Productos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">producto</ion-title>
+      <ion-title size="large">Productos</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-row>
+    <ion-col class="ion-margin-bottom">
+      <ion-label>
+        N°
+      </ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label>
+        Marca
+      </ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label>
+        Detalle
+      </ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label>
+        Categoria
+      </ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let producto of productos">
+    <ion-col>
+      <ion-label>
+        {{producto.ID}}
+      </ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label>
+        {{producto.nombre}} 
+      </ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label>
+        {{producto.detalle}}
+      </ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-text *ngFor="let categoria of categorias">
+        <ion-text *ngIf="producto.categoria_id==categoria.ID">
+          {{categoria.nombre}}
+        </ion-text>
+      </ion-text>
+    </ion-col>
+ </ion-row>
+ <ion-button expand="block" [routerLink]="['/producto/add-producto']">Agregar producto</ion-button>
 </ion-content>

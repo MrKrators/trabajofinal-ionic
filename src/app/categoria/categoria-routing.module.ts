@@ -8,7 +8,11 @@ const routes: Routes = [
     path: '',
     component: CategoriasPage
   },
-  
+  {
+    path: 'add-categoria',
+    loadChildren: () => import('./add-categoria/add-categoria.module').then( m => m.AddCategoriaPageModule)
+  },
+
 
 ];
 

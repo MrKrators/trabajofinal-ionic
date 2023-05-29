@@ -35,6 +35,8 @@ const routes: Routes = [
     path: 'ver-facturas',
     loadChildren: () => import('./ver-facturas/ver-facturas.module').then( m => m.VerFacturasPageModule)
   },
+
+
 ];
 
 @NgModule({

@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Agregar Categoria</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+   
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+
+            <ion-item>
+              <ion-input label="nombre" [(ngModel)]="nombre" type="text"></ion-input>
+            </ion-item>
+
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+        
+          <ion-button  type="ngSubmit" (click)="addCategoria()">Guardar</ion-button>
+        </ion-row>
+      </ion-grid>
+ 
+  
