@@ -7,10 +7,79 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">facturacion</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-grid>
+  
+    <ion-row>
+      <ion-col>
+        <ion-item >
+          <ion-label>
+            <ion-text>Ticket: </ion-text> 002
+          </ion-label>
+        </ion-item>
+      </ion-col>
+      
+      <ion-col>
+        <ion-item>
+          <ion-label>
+            <ion-text>Fecha: </ion-text> {{fecha |date:'full'}}
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label >
+            <ion-text>Vendedor: </ion-text> d7921bce-4e3b-4214-a021-e6f6ef368c42
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      
+        <ion-item>
+          <ion-input label="cantidad" labelPlacement="stacked" type="text" placeholder="Ingrese cantidad" [(ngModel)]="cantidad"></ion-input>
+        </ion-item>
+      
+
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-select interface="popover" placeholder="Seleccione Procuto" >
+              <ion-row>
+                <ion-select-option *ngFor="let item of items" value="{{item.ID}}" [(ngModel)]="item_id">
+                  
+                  <ion-text *ngFor="let producto of productos">
+                    <ion-text *ngFor="let categoria of categorias">
+                      <ion-text *ngIf="producto.ID==item.producto_id">
+                        <ion-text *ngIf="producto.categoria_id==categoria.ID" >
+                          <ion-text [(ngModel)]="nombre" >
+                            {{categoria.nombre}}: {{producto.nombre}} {{producto.detalle}} existencia: {{item.stock}} valor: {{item.precio}}
+                          </ion-text>
+                        </ion-text>
+                      </ion-text>
+                    </ion-text>
+                  </ion-text>
+
+                </ion-select-option>
+              </ion-row>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      
+      
+    </ion-row>
+    <ion-button expand="block">Agregar</ion-button>
+
+  </ion-grid>
+
+
+  <ion-button expand="block" type="ngSubmit" (click)="addFactura()">Crear factura</ion-button>
+
+
 </ion-content>

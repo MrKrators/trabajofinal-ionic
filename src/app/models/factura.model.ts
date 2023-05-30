@@ -1,24 +1,23 @@
-import { Articulo } from "./articulo.model";
+
+import { Item } from "./item.model";
 
 export class Factura {
 
     id?: string;
-    fecha?: any;
-    consecutivo?: any;
+    date?: any;
+    ticket?: any;
     user_id: string;
-    articulos: Articulo[];
+    items: Item[];
     subtotal: number;
-    iva: number;
-    descuento: number;
+    discount: number;
     total: number
 
 
-    constructor( user_id: string, articulos: Articulo[], subtotal: number, iva: number, descuento: number, total: number) {
+    constructor( user_id: string, items:Item[], subtotal: number, discount: number, total: number) {
         this.user_id = user_id;
-        this.articulos = articulos;
+        this.items = items;
         this.subtotal = subtotal;
-        this.iva = iva;
-        this.descuento = descuento;
+        this.discount = discount;
         this.total = total;
 
 
