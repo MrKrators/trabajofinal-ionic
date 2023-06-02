@@ -5,6 +5,7 @@ import { Producto } from '../models/producto.model';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { conndata } from '../services/conndata.service';
 import { Factura } from '../models/factura.model';
+import { Articulo } from '../models/articulo.model';
 
 @Component({
   selector: 'app-facturacion',
@@ -22,6 +23,7 @@ export class FacturacionPage implements OnInit {
   public nombre: string="";
   
   fecha: Date=new Date;
+  precio: number=0;
   
 
   
@@ -76,14 +78,17 @@ export class FacturacionPage implements OnInit {
     })
   }
 
-  // addProducto(){
-  //   const articulo:Articulo={
-  //     item_id:parseInt(this.item_id),
-  //     cantidad:parseInt(this.cantidad),
-  //     nombre:'',
-  //     precio:parseInt(this.cantidad),
-  //   }
-  // }
+  addProducto(){
+    const articulo: Articulo={
+      item_id:parseInt(this.item_id),
+      cantidad:parseInt(this.cantidad),
+      nombre:this.nombre,
+      precio:this.precio,
+    }
+
+  }
+
+
 
   addFactura(){
 

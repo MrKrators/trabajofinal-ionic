@@ -10,11 +10,14 @@
 <ion-content>
   <ion-grid>
   
-    <ion-row>
+    <ion-row >
       <ion-col>
         <ion-item >
-          <ion-label>
-            <ion-text>Ticket: </ion-text> 002
+          <ion-label >
+           Ticket: <a *ngFor="let factura of facturas; let c = count; let i = index"> 
+            <a *ngIf="c<=i+1">{{c+1}}
+              </a>
+            </a>
           </ion-label>
         </ion-item>
       </ion-col>
@@ -57,8 +60,10 @@
                     <ion-text *ngFor="let categoria of categorias">
                       <ion-text *ngIf="producto.ID==item.producto_id">
                         <ion-text *ngIf="producto.categoria_id==categoria.ID" >
-                          <ion-text [(ngModel)]="nombre" >
+                          <ion-text [(ngModel)]="nombre">
+                            <div [(ngModel)]="precio" >
                             {{categoria.nombre}}: {{producto.nombre}} {{producto.detalle}} existencia: {{item.stock}} valor: {{item.precio}}
+                            </div>
                           </ion-text>
                         </ion-text>
                       </ion-text>
